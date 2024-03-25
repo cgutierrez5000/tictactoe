@@ -1,0 +1,268 @@
+/* @import url(https://fonts.googleapis.com/css?family=Exo+2:200i); */
+@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap);
+
+:root {
+    /* Set global css neon colors  */
+    --neon-text-color: #f40;
+    --neon-border-color: #08f;
+}
+  
+body {
+font-family: 'Exo 2', sans-serif;
+background: #000;
+position: relative;
+margin-block-start: auto;
+}
+
+.container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+h1 {
+    font-size: 65px;
+    font-weight: 200;
+    font-style: italic;
+    color: #fff;
+    padding: 20px 30px;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    animation: flicker 1.4s infinite alternate;     
+}
+  
+h1::-moz-selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+h1::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+h1:focus {
+    outline: none;
+}
+
+
+h2 {
+    font-size: 28px;
+    color: #000000;
+    position: absolute;           
+    top: 52%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px 50px;
+}
+
+/* Game board */
+#board {
+    width: 650px;
+    height: 650px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    position: relative;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Single squares start*/
+div.odd {
+    font-size: 130px;
+    font-weight: 200;
+    font-style: italic;
+    color: #fff;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    animation: flickerOdd 1.5s infinite alternate;     
+}
+
+div.odd::-moz-selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+div.odd::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+div.odd:focus {
+    outline: none;
+}
+
+div.even {
+    font-size: 130px;
+    font-weight: 200;
+    font-style: italic;
+    color: #fff;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    animation: flickerEven 1.6s infinite alternate;     
+}
+
+div.even::-moz-selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+div.even::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+div.even:focus {
+    outline: none;
+}
+/* Single squares end */
+
+.button-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+button {
+    margin: 20px;
+}
+.btn {
+    color: #ffff;
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 4px solid;
+    font-weight: 300;
+    font-size: 25px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.btn-neon {
+    box-shadow: 0 0 10px #ef97e8, 0 0 20px #ef97e8, 0 0 30px #ef97e8 inset;
+    background-color: #000;
+    font-style:italic;
+    text-shadow:     
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #8e824b,
+    0 0 82px #8e824b,
+    0 0 92px #8e824b,
+    0 0 102px #8e824b,
+    0 0 151px #8e824b;
+}
+
+.btn-neon::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+.btn-neon:focus {
+    outline: none;;
+}
+
+.btn-neon:hover {
+    background-color: rgba(216, 202, 113);
+    box-shadow: 0 0 10px #ef97e8, 0 0 20px #ef97e8, 0 0 20px #fff inset;
+}
+
+
+/* Animate neon flicker */
+@keyframes flicker {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);        
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
+
+@keyframes flickerOdd {
+    
+    0%, 100% {
+    
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);        
+    }
+}
+@keyframes flickerEven {
+    
+    0%, 100% {
+    
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);        
+    }
+}
+
