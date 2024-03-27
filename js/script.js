@@ -4,7 +4,6 @@ let currentPlayer = 'X' //Player X always starts
 let gameBoard = ['','','','','','','','','', ]
 let gameActive = true
 
-
 /* Check for wins,draws, and will handle player's turns */
 function playerTurn(clickedSquareindex) {
     gameBoard[clickedSquareindex] = currentPlayer
@@ -117,14 +116,14 @@ function restartGame() {
         squares[i].innerText = ""
     }
 
+    //Removing the popup message
     const specialChild = board.querySelector('.popup-message');
-
     if (specialChild) {
         board.removeChild(specialChild)
     }
 
+    //Removing class .three-in-line from html
     const threeInLineChildren = document.querySelectorAll('.three-in-line')
-    console.log(threeInLineChildren);
     if (threeInLineChildren) {
         for (let i = 0; i < threeInLineChildren.length; i++) {
             threeInLineChildren[i].classList.remove('three-in-line')
