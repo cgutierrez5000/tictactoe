@@ -16,7 +16,6 @@ function playerTurn(clickedSquareindex) {
 function squareClicked(clickedSquareEvent) {
     const clickedSquare = clickedSquareEvent.target
     const clickedSquareindex = parseInt(clickedSquare.id.replace('square-', '')) - 1 
-    console.log(clickedSquare.id.replace('square-', ''));
     
     if(gameBoard[clickedSquareindex] !== '' || !gameActive) {
         return
@@ -42,16 +41,17 @@ function displaySquareValue() {
 /* It will print on screen when there is a winner*/
 function printWinner(player) {
     const messageElement = document.createElement('h2')
+    messageElement.className = 'popup-message'
     messageElement.textContent = `Player ${player} Wins!`
-    board.after(messageElement)
-
+    board.lastChild.after(messageElement)
 }
 
 /* It will print on screen when there is a draw*/
 function printDraw() {
     const messageElement = document.createElement('h2')
+    messageElement.className = 'popup-message'
     messageElement.textContent =  `Game Draw!`
-    board.after(messageElement)
+    board.lastChild.after(messageElement)
 }
 
 /* Winning conditions*/
@@ -76,6 +76,20 @@ function checkForWinOrDraw() {
         /* Are they three in a row? */
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
             roundWon = true
+
+            let firstSquareInLine = board.children[winConditions[i][0]]
+            let secondSquareInLine = board.children[winConditions[i][1]]
+            let thirdSquareInLine = board.children[winConditions[i][2]]
+
+            if (firstSquareInLine) {
+                firstSquareInLine.classList.add('three-in-line')
+            }
+            if (secondSquareInLine) {
+                secondSquareInLine.classList.add('three-in-line')
+            }
+            if (thirdSquareInLine) {
+                thirdSquareInLine.classList.add('three-in-line')
+            }
             break
         }
     }
@@ -83,6 +97,7 @@ function checkForWinOrDraw() {
     if (roundWon) {
         printWinner(currentPlayer);
         gameActive = false
+
         return
     }
   
@@ -95,10 +110,34 @@ function checkForWinOrDraw() {
 }
 
 /* Restart Game */
+document.getElementById('resetGame').addEventListener('click', restartGame)
 
 function restartGame() {
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].innerText = ""
+    }
 
+    const specialChild = board.querySelector('.popup-message');
+
+    if (specialChild) {
+        board.removeChild(specialChild)
+    }
+
+    const threeInLineChildren = document.querySelectorAll('.three-in-line')
+    console.log(threeInLineChildren);
+    if (threeInLineChildren) {
+        for (let i = 0; i < threeInLineChildren.length; i++) {
+            threeInLineChildren[i].classList.remove('three-in-line')
+        }
+    }
+
+    gameActive = true
+    currentPlayer = 'X' //Player X always starts
+    gameBoard = ['','','','','','','','','', ]
 }
+
+
+
 
 
 
