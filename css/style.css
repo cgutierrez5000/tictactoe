@@ -263,6 +263,11 @@ button {
 }
 
 @media (max-width: 550px) {
+    .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
     #board {
         width:400px;
         height:400px;
