@@ -246,5 +246,57 @@ button {
     }    
 }
 
+@media (max-width: 680px) {
+    #board {
+        width:500px;
+        height:500px;
+    }
+
+    div.square {
+        font-size: 80px;
+    }
+
+    .square {
+        width: 150px;
+        height:150px;
+    }
+}
+
+@media (max-width: 550px) {
+    #board {
+        width:400px;
+        height:400px;
+        grid-gap:5px;
+    }
+
+    .square {
+        width: 120px;
+        height:120px;
+    }
+}
+
+@media (max-width: 420px) {
+    .intro {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    #board {
+        width:300px;
+        height:300px;
+        grid-gap:2px;
+    }
+
+    .square {
+        width: 87px;
+        height:87px;
+    }
+}
+
 
 
