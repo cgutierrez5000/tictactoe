@@ -260,12 +260,23 @@ button {
         width: 150px;
         height:150px;
     }
+
+    h2.popup-message {
+        font-size: 20px;
+        padding: 20px 25px;
+    }
 }
 
 @media (max-width: 550px) {
     .container {
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+
+    h2.popup-message {
+        font-size: 16px;
+        padding: 15px 15px;
+        border-radius: 10px;
     }
 
     #board {
